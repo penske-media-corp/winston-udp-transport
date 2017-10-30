@@ -1,11 +1,11 @@
 {
   "name": "winston-udp-transport",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "UDP transport for winston logger",
   "main": "build/index.js",
   "module": "src/index.js",
   "scripts": {
-    "prepublish": "yarn run build",
+    "prepublishOnly": "yarn run build",
     "build": "babel src --out-dir build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
