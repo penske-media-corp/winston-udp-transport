@@ -1,0 +1,37 @@
+{
+  "name": "winston-udp-transport",
+  "version": "0.0.1",
+  "description": "UDP transport for winston logger",
+  "main": "build/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "babel src --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/sheknows/winston-udp-transport",
+  "author": "Anton Karmazin <karmazzin@ya.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "winston": "^2.4.0"
+  },
+  "keywords": [
+    "winston",
+    "logstash-udp",
+    "winston-transport"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sheknows/winston-udp-transport.git"
+  },
+  "bugs": "https://github.com/sheknows/winston-udp-transport/issues",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
