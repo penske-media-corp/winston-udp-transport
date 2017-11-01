@@ -49,22 +49,19 @@ UDPTransport.prototype.log = function(level, msg, meta, callback) {
     }
 
     meta.pid = self.pid;
-
     logEntry = common.log({
         level: level,
         message: msg,
         meta: {
             process: meta.process,
             application: self.application,
-            serverName: self.serverName
+            serverName: self.serverName,
+            stack: meta.stack
         },
-        timestamp: self.timestamp,
+        timestamp: new Date(),
         json: true
     });
     logEntry = JSON.stringify(JSON.parse(logEntry), null, '\t');
-
-    // stack is already well formatter
-    logEntry.meta.stack = meta.stack
 
     self.sendLog(logEntry, function (err) {
         self.emit('logged', !err);
@@ -79,7 +76,6 @@ UDPTransport.prototype.sendLog = function(message, callback) {
         message = message.replace(/\s+$/, '') + this.trailingLineFeedChar;
     }
     const buf = new Buffer(message);
-
     callback = (callback || function () {});
     self.client.send(buf, 0, buf.length, self.port, self.host, callback);
 };
