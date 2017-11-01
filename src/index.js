@@ -55,7 +55,6 @@ UDPTransport.prototype.log = function(level, msg, meta, callback) {
         message: msg,
         meta: {
             process: meta.process,
-            stack: meta.stack,
             application: self.application,
             serverName: self.serverName
         },
@@ -63,6 +62,9 @@ UDPTransport.prototype.log = function(level, msg, meta, callback) {
         json: true
     });
     logEntry = JSON.stringify(JSON.parse(logEntry), null, '\t');
+
+    // stack is already well formatter
+    logEntry.meta.stack = meta.stack
 
     self.sendLog(logEntry, function (err) {
         self.emit('logged', !err);

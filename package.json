@@ -1,6 +1,6 @@
 {
   "name": "winston-udp-transport",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "UDP transport for winston logger",
   "main": "build/index.js",
   "module": "src/index.js",
